@@ -4,170 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025.08.21 上智福岡中学高等学校 職員研修会</title>
-    <!-- Google Fonts for a modern, clean look -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for a futuristic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: #4a4a4a; /* Dark gray text */
-            background: #fdfdfd;
+            font-family: 'Roboto Mono', monospace; /* Monospaced font for a code/digital feel */
+            background-color: #0c0d12; /* Very dark background */
+            color: #e0e6ed; /* Light text for high contrast */
+        }
+        
+        /* Background grid and dots */
+        .background-grid {
+            background-image: radial-gradient(circle, #2a2c35 1px, transparent 1px),
+                              linear-gradient(to right, #2a2c35 1px, transparent 1px),
+                              linear-gradient(to bottom, #2a2c35 1px, transparent 1px);
+            background-size: 20px 20px, 20px 20px, 20px 20px;
+            background-position: center center;
         }
 
-        .main-container {
+        /* Neon gradient for titles and highlights */
+        .neon-gradient {
+            background-image: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glowing card effect */
+        .glowing-card {
             position: relative;
-            overflow: hidden;
+            background-color: rgba(22, 27, 34, 0.5);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(48, 54, 61, 0.8);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1), 0 0 15px rgba(255, 0, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .glowing-card:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), 0 0 25px rgba(255, 0, 255, 0.3);
+            transform: translateY(-5px);
         }
 
-        /* Abstract shapes for the background */
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 0;
-            filter: blur(80px); /* Soft blur effect */
-            animation: moveShapes 20s infinite ease-in-out;
+        /* Hover effect for sidebar links */
+        .sidebar-link {
+            transition: all 0.3s ease-in-out;
+            border-left: 2px solid transparent;
         }
 
-        .shape-1 {
-            background-color: #6ee7b7; /* Green-teal */
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: 5%;
-            border-radius: 50%;
-            animation-delay: 2s;
+        .sidebar-link:hover {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+            border-left: 2px solid #00ffff;
+            padding-left: 1rem;
         }
-
-        .shape-2 {
-            background-color: #93c5fd; /* Light blue */
-            width: 300px;
-            height: 300px;
-            bottom: 15%;
-            right: 10%;
-            transform: rotate(45deg);
-            animation-delay: 4s;
-        }
-
-        .shape-3 {
-            background-color: #c4b5fd; /* Lavender */
-            width: 250px;
-            height: 250px;
-            top: 50%;
-            left: 40%;
-            border-radius: 50%;
-            animation-delay: 6s;
-        }
-
-        @keyframes moveShapes {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-20px, 30px); }
-            50% { transform: translate(20px, -20px); }
-            75% { transform: translate(-10px, 15px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        /* Styling for content */
-        .content-section {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e5e5e5;
-        }
-
-        .toc-link:hover {
-            color: #3b82f6;
-            transition: color 0.3s;
+        
+        /* Orbitron for major titles */
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
         }
     </style>
 </head>
 <body class="flex min-h-screen">
-    <div class="main-container flex-1 md:flex">
 
-        <!-- Abstract Shapes in the background -->
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
+    <!-- Background Layer with Grid -->
+    <div class="fixed inset-0 z-0 background-grid"></div>
 
-        <!-- Sidebar (目次) -->
-        <aside class="relative md:fixed top-0 left-0 h-full w-64 bg-gray-50 p-6 shadow-lg overflow-y-auto z-10 hidden md:block">
-            <h2 class="text-xl font-bold text-gray-800 mb-6">目次</h2>
-            <nav>
-                <ul class="space-y-4">
-                    <li><a href="#introduction" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">はじめに</a></li>
-                    <li><a href="#what-is-generative-ai" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">生成AIとは？</a></li>
-                    <li><a href="#gemini" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">Geminiの利活用</a></li>
-                    <li><a href="#notebooklm" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">NotebookLMの利活用</a></li>
-                    <li><a href="#practical-examples" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">実践例</a></li>
-                    <li><a href="#q-and-a" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">質疑応答</a></li>
-                    <li><a href="#conclusion" class="block py-2 text-gray-600 hover:text-blue-500 transition duration-300">おわりに</a></li>
+    <!-- Sidebar (目次) -->
+    <aside class="relative md:fixed top-0 left-0 h-full w-64 p-6 overflow-y-auto z-10 hidden md:block glowing-card">
+        <h2 class="text-xl font-bold mb-6 neon-gradient">目次</h2>
+        <nav>
+            <ul class="space-y-4">
+                <li><a href="#introduction" class="block py-2 text-gray-400 hover:text-white sidebar-link">はじめに</a></li>
+                <li><a href="#what-is-generative-ai" class="block py-2 text-gray-400 hover:text-white sidebar-link">生成AIとは？</a></li>
+                <li><a href="#gemini" class="block py-2 text-gray-400 hover:text-white sidebar-link">Geminiの利活用</a></li>
+                <li><a href="#notebooklm" class="block py-2 text-gray-400 hover:text-white sidebar-link">NotebookLMの利活用</a></li>
+                <li><a href="#practical-examples" class="block py-2 text-gray-400 hover:text-white sidebar-link">実践例</a></li>
+                <li><a href="#q-and-a" class="block py-2 text-gray-400 hover:text-white sidebar-link">質疑応答</a></li>
+                <li><a href="#conclusion" class="block py-2 text-gray-400 hover:text-white sidebar-link">おわりに</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Content (メインコンテンツ) -->
+    <main class="flex-1 md:ml-64 p-8 z-20">
+        <article class="prose max-w-none">
+            <header class="mb-12">
+                <h1 class="text-5xl font-extrabold title-font neon-gradient">2025.08.21 上智福岡中学高等学校 職員研修会</h1>
+                <h2 class="text-2xl text-gray-500 mt-2 title-font">教育現場を支える生成AIの利活用</h2>
+                <p class="text-sm font-semibold text-gray-600 mt-2">テーマ: Gemini・NotebookLMの利活用について</p>
+            </header>
+
+            <section id="introduction" class="mb-12 glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">はじめに</h3>
+                <p>本研修会では、日々進化する生成AIを教育現場でどのように活用できるか、具体的な事例を交えながら解説します。特にGoogleが提供する<strong>Gemini</strong>と<strong>NotebookLM</strong>に焦点を当て、職員の皆様の業務効率化と教育の質の向上に繋がるヒントを提供します。</p>
+            </section>
+
+            <section id="what-is-generative-ai" class="mb-12 glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">生成AIとは？</h3>
+                <p>テキスト、画像、音声など、新しいコンテンツを生成する能力を持つ人工知能です。教育現場では、教材作成、生徒の質問への対応、カリキュラムの補助など、多岐にわたる活用が期待されています。</p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-gray-400">
+                    <li><strong class="text-gray-200">教師の業務を効率化</strong>：書類作成やルーティンワークを自動化</li>
+                    <li><strong class="text-gray-200">生徒の個別学習を支援</strong>：一人ひとりのペースに合わせた教材を提供</li>
+                    <li><strong class="text-gray-200">創造性の向上</strong>：新しいアイデアや視点を得るためのツールとして活用</li>
                 </ul>
-            </nav>
-        </aside>
+            </section>
 
-        <!-- Content (メインコンテンツ) -->
-        <main class="flex-1 md:ml-64 p-8 z-20">
-            <article class="prose max-w-none relative">
-                <header class="mb-12 border-b-2 border-gray-100 pb-6">
-                    <h1 class="text-4xl font-extrabold text-gray-800">2025.08.21 上智福岡中学高等学校 職員研修会</h1>
-                    <h2 class="text-2xl text-gray-500 mt-2">教育現場を支える生成AIの利活用</h2>
-                    <p class="text-sm font-semibold text-gray-400 mt-2">テーマ: Gemini・NotebookLMの利活用について</p>
-                </header>
+            <section id="gemini" class="mb-12 glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">Geminiの利活用</h3>
+                <p><strong>Gemini</strong>は、Googleが開発した高性能なマルチモーダルAIです。テキストだけでなく、画像や音声も理解し、高度な対話が可能です。教育現場での活用例をいくつか紹介します。</p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-gray-400">
+                    <li><strong class="text-gray-200">授業準備</strong>：特定のトピックに関する要約や、クイズ問題の自動生成</li>
+                    <li><strong class="text-gray-200">生徒へのフィードバック</strong>：作文やレポートの初期レビュー</li>
+                    <li><strong class="text-gray-200">多言語サポート</strong>：外国語の教材作成や翻訳</li>
+                </ul>
+            </section>
 
-                <section id="introduction" class="mb-16 content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">はじめに</h3>
-                    <p>本研修会では、日々進化する生成AIを教育現場でどのように活用できるか、具体的な事例を交えながら解説します。特にGoogleが提供する<strong>Gemini</strong>と<strong>NotebookLM</strong>に焦点を当て、職員の皆様の業務効率化と教育の質の向上に繋がるヒントを提供します。</p>
-                </section>
+            <section id="notebooklm" class="mb-12 glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">NotebookLMの利活用</h3>
+                <p><strong>NotebookLM</strong>は、ユーザーが提供したドキュメントを基に、質問への回答、要約、ブレインストーミングなどを行うことができるAIツールです。大量の資料を扱う職員の皆様にとって、強力なアシスタントとなります。</p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-gray-400">
+                    <li><strong class="text-gray-200">研究資料の整理</strong>：複数の論文や文献の要点を瞬時に把握</li>
+                    <li><strong class="text-gray-200">会議議事録の作成</strong>：録音データから要点を抽出し、議事録を自動生成</li>
+                    <li><strong class="text-gray-200">カリキュラム開発</strong>：過去の学習指導要領や参考資料からアイデアを抽出</li>
+                </ul>
+            </section>
 
-                <section id="what-is-generative-ai" class="mb-16 content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">生成AIとは？</h3>
-                    <p>テキスト、画像、音声など、新しいコンテンツを生成する能力を持つ人工知能です。教育現場では、教材作成、生徒の質問への対応、カリキュラムの補助など、多岐にわたる活用が期待されています。</p>
-                    <ul class="list-disc list-inside space-y-2 mt-4 text-gray-600">
-                        <li><strong class="text-gray-800">教師の業務を効率化</strong>：書類作成やルーティンワークを自動化</li>
-                        <li><strong class="text-gray-800">生徒の個別学習を支援</strong>：一人ひとりのペースに合わせた教材を提供</li>
-                        <li><strong class="text-gray-800">創造性の向上</strong>：新しいアイデアや視点を得るためのツールとして活用</li>
-                    </ul>
-                </section>
+            <section id="practical-examples" class="mb-12 glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">実践例</h3>
+                <p>ここでは、教育現場で実際に役立つ、より具体的な活用方法をデモンストレーションします。</p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-gray-400">
+                    <li><strong class="text-gray-200">授業計画の作成</strong></li>
+                    <li><strong class="text-gray-200">生徒のポートフォリオ分析</strong></li>
+                    <li><strong class="text-gray-200">個別学習プランの提案</strong></li>
+                </ul>
+            </section>
 
-                <section id="gemini" class="mb-16 content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">Geminiの利活用</h3>
-                    <p><strong>Gemini</strong>は、Googleが開発した高性能なマルチモーダルAIです。テキストだけでなく、画像や音声も理解し、高度な対話が可能です。教育現場での活用例をいくつか紹介します。</p>
-                    <ul class="list-disc list-inside space-y-2 mt-4 text-gray-600">
-                        <li><strong class="text-gray-800">授業準備</strong>：特定のトピックに関する要約や、クイズ問題の自動生成</li>
-                        <li><strong class="text-gray-800">生徒へのフィードバック</strong>：作文やレポートの初期レビュー</li>
-                        <li><strong class="text-gray-800">多言語サポート</strong>：外国語の教材作成や翻訳</li>
-                    </ul>
-                </section>
+            <section id="q-and-a" class="mb-12 glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">質疑応答</h3>
+                <p>このセクションでは、参加者の皆様からの質問にお答えします。日頃お感じになっている疑問点や、今後の活用方法について、一緒に考えていきましょう。</p>
+            </section>
 
-                <section id="notebooklm" class="mb-16 content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">NotebookLMの利活用</h3>
-                    <p><strong>NotebookLM</strong>は、ユーザーが提供したドキュメントを基に、質問への回答、要約、ブレインストーミングなどを行うことができるAIツールです。大量の資料を扱う職員の皆様にとって、強力なアシスタントとなります。</p>
-                    <ul class="list-disc list-inside space-y-2 mt-4 text-gray-600">
-                        <li><strong class="text-gray-800">研究資料の整理</strong>：複数の論文や文献の要点を瞬時に把握</li>
-                        <li><strong class="text-gray-800">会議議事録の作成</strong>：録音データから要点を抽出し、議事録を自動生成</li>
-                        <li><strong class="text-gray-800">カリキュラム開発</strong>：過去の学習指導要領や参考資料からアイデアを抽出</li>
-                    </ul>
-                </section>
-
-                <section id="practical-examples" class="mb-16 content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">実践例</h3>
-                    <p>ここでは、教育現場で実際に役立つ、より具体的な活用方法をデモンストレーションします。</p>
-                    <ul class="list-disc list-inside space-y-2 mt-4 text-gray-600">
-                        <li><strong class="text-gray-800">授業計画の作成</strong></li>
-                        <li><strong class="text-gray-800">生徒のポートフォリオ分析</strong></li>
-                        <li><strong class="text-gray-800">個別学習プランの提案</strong></li>
-                    </ul>
-                </section>
-
-                <section id="q-and-a" class="mb-16 content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">質疑応答</h3>
-                    <p>このセクションでは、参加者の皆様からの質問にお答えします。日頃お感じになっている疑問点や、今後の活用方法について、一緒に考えていきましょう。</p>
-                </section>
-
-                <section id="conclusion" class="content-section p-8 rounded-lg shadow-sm">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2">おわりに</h3>
-                    <p>生成AIは、教育のあり方を変える可能性を秘めたツールです。本研修会が、皆様の教育活動をより豊かで効率的なものにする一助となれば幸いです。</p>
-                </section>
-            </article>
-        </main>
-    </div>
+            <section id="conclusion" class="glowing-card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 neon-gradient">おわりに</h3>
+                <p>生成AIは、教育のあり方を変える可能性を秘めたツールです。本研修会が、皆様の教育活動をより豊かで効率的なものにする一助となれば幸いです。</p>
+            </section>
+        </article>
+    </main>
 </body>
 </html>
